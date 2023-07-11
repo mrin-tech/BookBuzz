@@ -30,3 +30,6 @@ app.register_blueprint(core)
 
 from bookReviewBlog.errorPages.handlers import error_pages
 app.register_blueprint(error_pages)
+
+from bookReviewBlog.users.views import users
+app.register_blueprint(users)
