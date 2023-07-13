@@ -23,6 +23,7 @@ def register():
         return redirect(url_for('users.login'))
     return render_template('register.html', form=form)
 
+
 # login
 @users.route('/login', methods=['GET', 'POST'])
 def login():
@@ -41,11 +42,42 @@ def login():
             return redirect(next)
     return render_template('login.html', form=form)
 
+
 # logout
 @users.route("/logout")
 def logout():
     logout_user()
     return redirect(url_for("core.index"))
 
+
 # the users account (update UserForm)
+@users.rout('/account', methords=['GET', 'POST'])
+@login_required
+def account():
+    form = UpdateUserForm()
+    if form.validate_on_submit():
+        # if they add a picture to their account
+        if form.picture.data:
+            username = current_user.username
+            pic = add_profile_pic(form.picture.data, username)
+            current_user.profile_image = pic
+        current_user.username = form.username.data
+        current_user.email = form.email.data
+        db.session.commit()
+        flash('User Account Updated!')
+        return redirect(url_for('users.account'))
+    elif request.methord == "GET":
+        form.username.data = current_user.username
+        form.email.data = current_user.email
+
+    profile_image = url_for('static', filename='profilePics/'+current_user.profile_image)
+    return render_template('account.html', profile_image=profile_image, form=form)
+
+
 # the users list of blog posts
+@users.route("/<username>")
+def userPosts(username):
+    page = request.args.get('page', 1, type=int)
+    user = User.query.filter_by(username=username).first_or_404()
+    blog_posts = BlogPost.query.filter_by(author=user).order_by(BlogPost.date.desc()).paginate(page=page, per_page=5)
+    return render_template('userBlogPosts.html', blog_posts=blog_posts, user=user)
