@@ -2,7 +2,7 @@
 from flask import render_template, url_for, flash, redirect, request, Blueprint
 from flask_login import login_user, current_user, logout_user, login_required
 from bookReviewBlog import db
-from bookReviewBlog import User, BlogPost
+from bookReviewBlog.models import User, BlogPost
 from bookReviewBlog.users.forms import RegistrationForm, LoginForm, UpdateUserForm
 from bookReviewBlog.users.pictureHandler import add_profile_pic
 
@@ -15,7 +15,7 @@ def register():
 
     if form.validate_on_submit():
         user = User(email=form.email.data,
-                    username = form.username.data,
+                    username=form.username.data,
                     password=form.password.data)
         db.session.add(user)
         db.session.commit()
@@ -51,7 +51,7 @@ def logout():
 
 
 # the users account (update UserForm)
-@users.rout('/account', methords=['GET', 'POST'])
+@users.route('/account', methods=['GET', 'POST'])
 @login_required
 def account():
     form = UpdateUserForm()
@@ -66,7 +66,7 @@ def account():
         db.session.commit()
         flash('User Account Updated!')
         return redirect(url_for('users.account'))
-    elif request.methord == "GET":
+    elif request.method == "GET":
         form.username.data = current_user.username
         form.email.data = current_user.email
 

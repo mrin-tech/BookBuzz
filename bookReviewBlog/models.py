@@ -1,7 +1,7 @@
 from bookReviewBlog import db, loginManager
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-from datetime import datatime
+from datetime import datetime
 
 @loginManager.user_loader
 def load_user(userId):
@@ -19,7 +19,7 @@ class User(db.Model, UserMixin):
 
     posts = db.relationship('BlogPost', backref='author', lazy=True)
 
-    def __init__(self, email, username, passsword):
+    def __init__(self, email, username, password):
         self.email = email
         self.username = username
         self.password_hash = generate_password_hash(password)

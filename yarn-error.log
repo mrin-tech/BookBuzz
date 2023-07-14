@@ -1,0 +1,36 @@
+Arguments: 
+  /Users/mrinmoyeemishra/.nvm/versions/node/v18.1.0/bin/node /Users/mrinmoyeemishra/.nvm/versions/node/v18.1.0/bin/yarn add flask_sqlalchemy
+
+PATH: 
+  /Users/mrinmoyeemishra/Desktop/BookReview/virtual/bin:/Users/mrinmoyeemishra/.nvm/versions/node/v18.1.0/bin:/Library/Frameworks/Python.framework/Versions/3.7/bin:/Users/mrinmoyeemishra/.nvm/versions/node/v18.1.0/bin:/Library/Frameworks/Python.framework/Versions/3.7/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Library/Frameworks/Python.framework/Versions/3.7/bin:/Users/mrinmoyeemishra/.nvm/versions/node/v18.1.0/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.1.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/flask_sqlalchemy: Not found
+      at params.callback [as _callback] (/Users/mrinmoyeemishra/.nvm/versions/node/v18.1.0/lib/node_modules/yarn/lib/cli.js:66145:18)
+      at self.callback (/Users/mrinmoyeemishra/.nvm/versions/node/v18.1.0/lib/node_modules/yarn/lib/cli.js:140890:22)
+      at Request.emit (node:events:527:28)
+      at Request.<anonymous> (/Users/mrinmoyeemishra/.nvm/versions/node/v18.1.0/lib/node_modules/yarn/lib/cli.js:141862:10)
+      at Request.emit (node:events:527:28)
+      at IncomingMessage.<anonymous> (/Users/mrinmoyeemishra/.nvm/versions/node/v18.1.0/lib/node_modules/yarn/lib/cli.js:141784:12)
+      at Object.onceWrapper (node:events:641:28)
+      at IncomingMessage.emit (node:events:539:35)
+      at endReadableNT (node:internal/streams/readable:1344:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
