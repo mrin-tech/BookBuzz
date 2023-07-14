@@ -49,7 +49,7 @@ def logout():
     logout_user()
     return redirect(url_for("core.index"))
 
-
+#
 # the users account (update UserForm)
 @users.route('/account', methods=['GET', 'POST'])
 @login_required
