@@ -34,3 +34,6 @@ app.register_blueprint(error_pages)
 
 from bookReviewBlog.users.views import users
 app.register_blueprint(users)
+
+from bookReviewBlog.bookPosts.views import bookPosts
+app.register_blueprint(bookPosts)
