@@ -14,7 +14,7 @@ def create_post():
     if form.validate_on_submit():
         blogPost = BlogPost(title=form.title.data,
                             text=form.text.data,
-                            user_id=current_user.id)
+                            userId=current_user.id)
         db.session.add(blogPost)
         db.session.commit()
         flash('blog post created')
@@ -23,14 +23,14 @@ def create_post():
 
 
 # view a post
-@bookPosts.route('/<int"blogPostID>')
+@bookPosts.route('/<int:blogPostID>')
 def blogPost(blogPostID):
     blogPost = BlogPost.query.get_or_404(blogPostID)
     return render_template('blogPostView.html', title=blogPost.title, date=blogPost.date, post=blogPost)
 
 
 # update
-@bookPosts.route('/<int"blogPostID/update>', methods=['GET', 'POST'])
+@bookPosts.route('/<int:blogPostID>/update', methods=['GET', 'POST'])
 @login_required
 def update(blogPostID):
     blogPost = BlogPost.query.get_or_404(blogPostID)
@@ -43,7 +43,7 @@ def update(blogPostID):
 
         db.session.commit()
         flash('blog post updated')
-        return redirect(url_for('blogPostView.blogPost', blogPostID=blogPost.id))
+        return redirect(url_for('bookPosts.blogPost', blogPostID=blogPost.id))
     elif request.method == 'GET':
         form.title.data = blogPost.title
         form.text.data = blogPost.text
@@ -51,7 +51,7 @@ def update(blogPostID):
 
 
 # delete
-@bookPosts.route('/<int"blogPostID/delete>', methods=['GET', 'POST'])
+@bookPosts.route('/<int:blogPostID>/delete', methods=['GET', 'POST'])
 @login_required
 def deletePost(blogPostID):
     blogPost = BlogPost.query.get_or_404(blogPostID)
