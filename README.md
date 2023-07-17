@@ -16,7 +16,20 @@ Technologies and tools used:
 - SQLAlchemy
 - Visual Studio Code
 
- To run the application, download the files and run the following command in the command line/terminal application: 
+ To run the application, download the files. Install flask and create a flask environment. 
+```
+conda create -n <flask_app_environment_name>
+```
+```
+source activate <flask_app_environment_name>
+```
+
+Download the requirements in requirements.txt.
+```
+pip install -r requirements.txt
+```
+ 
+Then run the following command to display the application in your web browser. 
 ```
 python3 app.py
 ```
