@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="jumbotron"  style="text-align: center;" > 
+    <div class="jumbotron"  style="text-align: center; background-color:#E1D4DD;" > 
         <h1> Welcome to BookBuzz! 🐝 </h1>
         <h3> Explore the honeycomb of treasured works!</h3>
     </div>
@@ -10,16 +10,16 @@
         {# Go through each blog post #}
         {% for post in blog_posts.items %}
     
-        <div class="card" >
+        <div class="card" style="background-color: #E0918B; border-radius: 25px; margin: 10px; border-color: #241E4E; border-width: 2px;">
     
             <div class="card-body">
     
     
-            <h2><a class="card-title" href="  {{ url_for('bookPosts.blogPost', blogPostID=post.id) }}">{{ post.title }}</a></h2>
-            <a href="{{ url_for('users.userPosts', username=post.author.username) }}">Written By: {{ post.author.username }}</a>
+            <h2><a class="card-title" href="  {{ url_for('bookPosts.blogPost', blogPostID=post.id) }}" style="color: #241E4E;">{{ post.title }}</a></h2>
+            <a href="{{ url_for('users.userPosts', username=post.author.username) }}" style="color: #6B0504">Written By: {{ post.author.username }}</a>
             <p>Published on: {{ post.date.strftime('%Y-%m-%d') }}</p>
             <p class="card-text">{{ post.text[:100] }}...</p>
-            <a href="{{ url_for('bookPosts.blogPost', blogPostID=post.id) }}" class="btn btn-primary">Read Review!</a>
+            <a href="{{ url_for('bookPosts.blogPost', blogPostID=post.id) }}" class="btn btn-primary" style="color: #E1D4DD; background-color: #241E4E;">Read Review!</a>
             </div>
         </div>
     

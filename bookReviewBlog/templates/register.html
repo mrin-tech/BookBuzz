@@ -1,12 +1,35 @@
 {%extends "base.html" %}
 {% block content %}
-    <form method="POST">
+    <form method="POST" style="padding: 20px;">
         {{form.hidden_tag()}}
-        {{form.email.label}}{{form.email}}<br>
+        <div style="display: flex; justify-content: center; align-items:center;  margin: 20px;">
+        <h1>Register your account!</h1>
+        </div>
+        <div class="form-group" style="align-items:center; margin-left: 25%; margin-right: 25%;">
+            <label for="emailLabel">Email address</label>
+            {{ form.email(class_="form-control", id="inputEmail", placeholder="Enter your email") }}
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group" style="align-items:center; margin-left: 25%; margin-right: 25%;">
+            <label for="usernameLabel">Username</label>
+            {{form.username (class_="form-control", id="inputUsername", placeholder="Set a username!") }}
+        </div>
+        <div class="form-group" style="align-items:center; margin-left: 25%; margin-right: 25%;">
+            <label for="passwordLabel">Password</label>
+            {{form.password (class_="form-control", id="inputPassword", placeholder="Password") }}
+        </div>
+        <div class="form-group" style="align-items:center; margin-left: 25%; margin-right: 25%;">
+            <label for="passwordConfirmLabel">Confirm Password</label>
+            {{form.pass_confirm (class_="form-control", id="inputPasswordConfirm", placeholder="Confirm Password") }}
+        </div>
+        <div class="form-group" style="align-items:center; margin-left: 25%; margin-right: 25%;">
+            {{form.submit()}}
+        </div>
+        <!-- {{form.email.label}}{{form.email}}<br>
         {{form.username.label}}{{form.username}}<br>
         {{form.password.label}}{{form.password}}<br>
-        {{form.pass_confirm.label}}{{form.pass_confirm}}<br>
-        {{form.submit()}}
+        {{form.pass_confirm.label}}{{form.pass_confirm}}<br> -->
+        <!-- {{form.submit()}} -->
     </form>
 
 {% endblock %}

@@ -9,33 +9,33 @@
         <title>Document</title>
     </head>
     <body>
-        <ul class="nav">
+        <ul class="nav" style="background-color: #E0BA61;">
             <li class="nav-link">
-                <a href="{{url_for('core.index')}}">Home</a>
+                <a href="{{url_for('core.index')}} " style="color: #241E4E;">Home</a>
             </li>
             <li class="nav-link">
-                <a href="{{url_for('core.info')}}">About</a>
+                <a href="{{url_for('core.info')}}" style="color: #241E4E;">About</a>
             </li>
             {% if current_user.is_authenticated %}
             <li class="nav-link">
-                <a href="{{url_for('users.logout')}}">Logout</a>
+                <a href="{{url_for('users.logout')}} " style="color: #241E4E;">Logout</a>
             </li>
             <li class="nav-link">
-                <a href="{{url_for('users.account')}}">Account</a>
+                <a href="{{url_for('users.account')}}" style="color: #241E4E;">Account</a>
             </li>
             <li class="nav-link">
-                <a href="{{url_for('bookPosts.create_post')}}">Write a Review!</a>
+                <a href="{{url_for('bookPosts.create_post')}}" style="color: #241E4E;">Write a Review!</a>
             </li>
             {% else %}
             <li class="nav-link">
-                <a href="{{url_for('users.login')}}">Login</a>
+                <a href="{{url_for('users.login')}}" style="color: #241E4E;">Login</a>
             </li>
             <li class="nav-link">
-                <a href="{{url_for('users.register')}}">Register</a>
+                <a href="{{url_for('users.register')}}" style="color: #241E4E;">Register</a>
             </li>
             {% endif %}
         </ul>
-        <div class=""container>
+        <div class="container" style="background-color:#E1D4DD;">
             {% block content %}
             
             {% endblock %}
