@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
     <div class="container">
-        <div class="jumbotron" > 
+        <div class="jumbotron" style="background-color: #E1D4DD;"> 
             <div align="center">
                 <h1>Welcome to the page for {{user.username}}</h1>
                 <img src="{{url_for('static',filename='profilePics/'+user.profile_image)}}">
@@ -25,11 +25,11 @@
             {% for post in blog_posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=1) %}
                 {% if blog_posts.page == page_num %}
                     <li class="page-item disabled">
-                        <a class="page-link" href="{{url_for('users.user_posts', username=user.username, page=page_num)}}">{{page_num}}</a>
+                        <a class="page-link" href="{{url_for('users.user_posts', username=user.username, page=page_num)}}" style="color: #E1D4DD; background-color: #241E4E;">{{page_num}}</a>
                     </li>
                 {% else %}
                     <li class="page-item">
-                        <a class="page-link" href="{{url_for('users.userPosts', username=user.username, page=page_num)}}">{{page_num}}</a>
+                        <a class="page-link" href="{{url_for('users.userPosts', username=user.username, page=page_num)}}" style="color: #241E4E; background-color: #F2EFF1; border-color: #241E4E; border-radius: 2px;">{{page_num}}</a>
                     </li>
                 {% endif %}
             {% endfor %}

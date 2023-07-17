@@ -29,11 +29,11 @@
             <ul class="pagination justify-content-center">
             {% for page_num in blog_posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
                 {% if blog_posts.page == page_num %}
-                <li class="page-item disabled">
-                <a class="page-link" href="{{ url_for('core.index', page=page_num) }}">{{ page_num }}</a></li>
+                <li class="page-item disabled" >
+                <a class="page-link" href="{{ url_for('core.index', page=page_num) }}" style="color: #E1D4DD; background-color: #241E4E;">{{ page_num }}</a></li>
                 </li>
                 {% else %}
-                <li class="page-item"><a class="page-link" href="{{ url_for('core.index', page=page_num) }}">{{ page_num }}</a></li>
+                <li class="page-item"><a class="page-link" href="{{ url_for('core.index', page=page_num) }}" style="color: #241E4E; background-color: #F2EFF1; border-color: #241E4E; border-radius: 2px;" >{{ page_num }}</a></li>
                 {% endif %}
             {% endfor %}
         </nav>
